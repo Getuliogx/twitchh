@@ -1,0 +1,22 @@
+services:
+  app:
+    build: ./app
+    restart: unless-stopped
+    volumes:
+      - app_data:/data
+      - hls_data:/hls:ro
+
+  media:
+    build: ./media
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "1935:1935"
+    volumes:
+      - hls_data:/hls
+
+volumes:
+  app_data:
+  hls_data:

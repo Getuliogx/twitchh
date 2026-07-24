@@ -1,0 +1,21 @@
+TWITCH SIMPLES — ORACLE
+
+1. Na Oracle, libere as portas TCP 80 e 1935.
+2. Envie esta pasta para a máquina Ubuntu.
+3. Entre na pasta e execute:
+
+   sudo bash instalar.sh
+
+4. Abra no navegador:
+
+   http://IP_DA_ORACLE/admin
+
+5. Digite apenas:
+   - nome do canal da Twitch;
+   - título do site;
+   - senha do painel.
+
+O painel mostrará automaticamente o servidor e a chave para colar no OBS.
+O público acessa apenas http://IP_DA_ORACLE/
+
+Não precisa de .env, HLS_URL, Client ID ou Client Secret.

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e0e10">
+  <title>Transmissão</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-icon">▶</span><span id="brand-name">Canal</span></div>
+    <div class="top-status">
+      <span id="viewer-count" class="viewer-count">0 neste site</span>
+      <span id="live-badge" class="badge badge-off">OFFLINE</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="main-column">
+      <div class="player-shell">
+        <video id="video" controls autoplay playsinline></video>
+        <div id="player-message" class="player-message">
+          <strong>Transmissão fora do ar</strong>
+          <span>Quando a live começar, o vídeo aparecerá aqui automaticamente.</span>
+        </div>
+      </div>
+
+      <section class="channel-card">
+        <div>
+          <h1 id="stream-title">Transmissão ao vivo</h1>
+          <p>Player próprio com o chat oficial da Twitch ao lado.</p>
+        </div>
+      </section>
+
+      <div id="setup-warning" class="warning hidden">
+        Este site ainda não foi configurado. Abra <a href="/admin">/admin</a>.
+      </div>
+    </section>
+
+    <aside class="chat-column">
+      <div class="chat-header">
+        <strong>Chat da Twitch</strong>
+        <span>Emotes, badges e moderação do canal</span>
+      </div>
+      <iframe id="chat" title="Chat da Twitch" frameborder="0" allowfullscreen></iframe>
+    </aside>
+  </main>
+
+  <script src="/vendor/hls.min.js"></script>
+  <script src="/app.js" defer></script>
+</body>
+</html>

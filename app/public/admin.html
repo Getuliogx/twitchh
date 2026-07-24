@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0e0e10">
+  <title>Painel da transmissão</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="admin-body">
+  <main class="admin-wrap">
+    <section class="admin-card">
+      <div class="admin-heading">
+        <div>
+          <span class="eyebrow">CONFIGURAÇÃO SIMPLES</span>
+          <h1>Painel da transmissão</h1>
+          <p>Sem arquivo .env e sem chave de aplicativo da Twitch.</p>
+        </div>
+        <a class="button button-ghost" href="/">Abrir site</a>
+      </div>
+
+      <div id="notice" class="notice hidden"></div>
+
+      <form id="setup-form" class="form hidden">
+        <h2>Primeira configuração</h2>
+        <label>Seu canal da Twitch
+          <input id="setup-channel" autocomplete="off" placeholder="exemplo: seucanal" required>
+        </label>
+        <label>Título mostrado no site
+          <input id="setup-title" value="Transmissão ao vivo" maxlength="100">
+        </label>
+        <label>Crie uma senha para este painel
+          <input id="setup-password" type="password" minlength="6" required>
+        </label>
+        <button class="button button-primary" type="submit">Criar meu site</button>
+      </form>
+
+      <form id="login-form" class="form hidden">
+        <h2>Entrar no painel</h2>
+        <label>Senha do painel
+          <input id="login-password" type="password" required autofocus>
+        </label>
+        <button class="button button-primary" type="submit">Entrar</button>
+      </form>
+
+      <div id="dashboard" class="hidden">
+        <div class="status-line">
+          <span id="admin-live" class="badge badge-off">OFFLINE</span>
+          <span>O site detecta a transmissão automaticamente.</span>
+        </div>
+
+        <div class="connection-grid">
+          <section class="connection-card">
+            <span class="field-title">Servidor do OBS</span>
+            <code id="rtmp-server"></code>
+            <button class="button button-small copy" data-copy="rtmp-server" type="button">Copiar</button>
+          </section>
+          <section class="connection-card">
+            <span class="field-title">Chave de transmissão</span>
+            <code id="stream-key"></code>
+            <button class="button button-small copy" data-copy="stream-key" type="button">Copiar</button>
+          </section>
+        </div>
+
+        <div class="tip-box">
+          No OBS, escolha <strong>Serviço: Personalizado</strong>, cole o servidor e a chave acima e clique em <strong>Iniciar transmissão</strong>.
+        </div>
+
+        <form id="settings-form" class="form compact-form">
+          <h2>Informações do site</h2>
+          <label>Canal da Twitch
+            <input id="channel" required>
+          </label>
+          <label>Título mostrado no site
+            <input id="title" maxlength="100">
+          </label>
+          <div class="button-row">
+            <button class="button button-primary" type="submit">Salvar</button>
+            <button id="regenerate" class="button button-danger" type="button">Gerar nova chave</button>
+            <button id="logout" class="button button-ghost" type="button">Sair</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script src="/admin.js" defer></script>
+</body>
+</html>
